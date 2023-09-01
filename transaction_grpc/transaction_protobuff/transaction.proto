@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option go_package="github.com/kiran-blockchain/nextxd-go-advanced/grpc-mongo";
+
+package transaction;
+
+service TransactionService {
+    rpc Transfer(TransactionRequest) returns (TransactionResponse);
+}
+
+message TransactionRequest {
+    string from_id = 1;
+    string to_id = 2;
+    int64 amount = 3;
+}
+
+message TransactionResponse {
+    string status = 1;
+    string message = 2;
+}
